@@ -23,6 +23,8 @@ jobs:
         gradle-version: 5.6.2
     - name: Grant execute permission for gradlew
       run: chmod a+x gradlew
+    - name: run gradle wrapper
+      run: ./gradlew wrapper
     - name: Build with Gradle
       run: ./gradlew -s build
     - name: build a bootJar
