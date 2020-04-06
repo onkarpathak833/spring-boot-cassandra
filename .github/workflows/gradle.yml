@@ -21,8 +21,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod a+x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name : Build Docker container
-      run: docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/gs-spring-boot-docker .
+    - name: build a bootJar
+    - run : ./gradlew bootJar
