@@ -1,7 +1,6 @@
-/gradle
 /.idea
 .idea/
 /build
-/.gradle/5.2.1/
+/.gradle
 /.gradle/checksums/
 /.gradle/buildOutputCleanup
