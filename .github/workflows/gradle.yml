@@ -29,3 +29,5 @@ jobs:
       run: ./gradlew -s build
     - name: build a bootJar
       run : ./gradlew -s bootJar
+    - name: build project jar
+      run : ./gradlew -s assemble
