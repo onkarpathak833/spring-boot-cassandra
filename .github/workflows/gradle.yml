@@ -31,10 +31,4 @@ jobs:
       run : ./gradlew bootJar
     - name: build project jar
       run : ./gradlew assemble
-    - name: Publish Artifacts
-      env:
-        GITHUB_TOKEN: "Onkar1712@"
-      run : |
-        echo "Github username: ${GITHUB_ACTOR}"
-        ./gradlew  publish publishJarPublicationToGitHubPackagesRepository
   
