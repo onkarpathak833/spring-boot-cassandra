@@ -15,19 +15,46 @@ plugins {
     id 'maven-publish'
 }
 
-group 'org.example'
+group 'com.ikea.ingka.cop.dsa.poc'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-bootJar {
-    baseName = 'gs-spring-boot-docker'
-    version = '0.1.0'
-}
 
 repositories {
     mavenCentral()
 }
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = "sources"
+}
+
+jar {
+
+    baseName = "spring-cassandra"
+    version = "1.0-SNAPSHOT"
+    enabled = true
+}
+
+bootJar {
+    classifier = 'application'
+}
+
+publishing {
+    publications {
+        myPublication(MavenPublication) {
+            from components.java
+            afterEvaluate {
+                artifact project.sourceJar {
+                    classifier "sources"
+                }
+            }
+
+        }
+    }
+}
+
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
