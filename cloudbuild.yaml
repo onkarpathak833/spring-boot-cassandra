@@ -1,19 +1,30 @@
 steps:
   - name: 'gcr.io/cloud-builders/gradle'
+    id : A
     args: ['clean','build','jar','customFatJar']
     env :
       - 'GITHUB_ACTOR=onkarpathak833'
       - 'REPO_TOKEN=c2d2fdf84ee8ca300cd95d1b79dabe00898fc61e'
     timeout: 600s
+
   - name : 'gcr.io/cloud-builders/docker'
+    id : B
+    waitFor:
+      - A
     args: ['build','-t','gcr.io/project1-186407/spring-cassandra','.']
     env:
       - 'FILE_PATH=gs://tw-onkar-data/jars/spring-cassandra-1.0-SNAPSHOT-application.jar'
 
   - name: 'gcr.io/cloud-builders/docker'
+    id : C
+    waitFor:
+      - B
     args: ['push','gcr.io/project1-186407/spring-cassandra']
 
   - name: 'gcr.io/cloud-builders/gcloud'
+    id : D
+    waitFor:
+      - C
     args: ['run', 'deploy', 'spring-cassandra', '--image', 'gcr.io/project1-186407/spring-cassandra@sha256:de74509b4970b729d5dc3799168b98a36e53ecd70873bdf3c4c3762f882f1120', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
 logsBucket: 'gs://tw-onkar-data/'
