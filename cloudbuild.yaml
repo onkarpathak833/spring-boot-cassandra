@@ -12,7 +12,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push','gcr.io/project1-186407/spring-cassandra']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'spring-cassandra', '--image', 'gcr.io/project1-186407/gcr.io/project1-186407/spring-cassandra@sha256:de74509b4970b729d5dc3799168b98a36e53ecd70873bdf3c4c3762f882f1120', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+    args: ['run', 'deploy', 'spring-cassandra', '--image', 'gcr.io/project1-186407/spring-cassandra@sha256:de74509b4970b729d5dc3799168b98a36e53ecd70873bdf3c4c3762f882f1120', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
 artifacts:
   objects:
