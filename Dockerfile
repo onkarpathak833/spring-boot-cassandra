@@ -1,7 +1,7 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR=build/spring-cassandra-1.0-SNAPSHOT-application.jar
-COPY ${JAR_FILE} target/app.jar
-ADD ${JAR_FILE} target/app.jar
+FROM java:8
+VOLUME /tmp
+ADD /build/libs/spring-cassandra-1.0-SNAPSHOT-application.jar app.jar
+#RUN sh -c 'touch app.jar'
 ENV PORT 8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","target/app.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","app.jar"]
