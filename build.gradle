@@ -46,30 +46,10 @@ publishing {
     publications {
         register("jar", MavenPublication) {
             from components.java
-            pom {
-                url.set("https://github.com/onkarpathak833/spring-boot-cassandra.git")
-            }
-            afterEvaluate {
-                artifact project.sourceJar {
-                    classifier "sources"
-                }
-            }
-
         }
 
     }
 
-
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/onkarpathak833/spring-boot-cassandra.git")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("REPO_TOKEN")
-            }
-        }
-    }
 }
 
 
