@@ -33,3 +33,5 @@ jobs:
       run : ./gradlew assemble
     - name : publish artifacts
       run: ./gradlew publish
+    - name : publish to maven local
+      run : ./gradlew publishToMavenLocal
