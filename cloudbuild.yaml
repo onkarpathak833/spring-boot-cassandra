@@ -5,11 +5,6 @@ steps:
       - 'GITHUB_ACTOR=onkarpathak833'
       - 'REPO_TOKEN=c2d2fdf84ee8ca300cd95d1b79dabe00898fc61e'
     timeout: 600s
-artifacts:
-  objects:
-    location: 'gs://tw-onkar-data/jars/'
-    paths: ['/workspace/build/libs/spring-cassandra-1.0-SNAPSHOT-application.jar']
-
   - name : 'gcr.io/cloud-builders/docker'
     args: ['build','-t','gcr.io/project1-186407/spring-cassandra','.']
     env:
@@ -22,3 +17,7 @@ artifacts:
     args: ['run', 'deploy', 'spring-cassandra', '--image', 'gcr.io/project1-186407/spring-cassandra@sha256:de74509b4970b729d5dc3799168b98a36e53ecd70873bdf3c4c3762f882f1120', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
 logsBucket: 'gs://tw-onkar-data/'
+artifacts:
+  objects:
+    location: 'gs://tw-onkar-data/jars/'
+    paths: ['/workspace/build/libs/spring-cassandra-1.0-SNAPSHOT-application.jar']
