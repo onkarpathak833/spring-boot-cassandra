@@ -46,7 +46,7 @@ publishing {
         register("jar", MavenPublication) {
             from components.java
             pom {
-                url.set("https://github.com/onkarpathak833/spring-boot-cassandra")
+                url.set("https://github.com/onkarpathak833/spring-boot-cassandra.git")
             }
             afterEvaluate {
                 artifact project.sourceJar {
