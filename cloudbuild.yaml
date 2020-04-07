@@ -7,6 +7,6 @@ steps:
     timeout: 600s
 artifacts:
   objects:
-    location: 'gs://tw-onkar-data/'
-    paths: ['build']
+    location: 'gs://tw-onkar-data/jars/'
+    paths: ['/workspace/build/libs/spring-cassandra-1.0-SNAPSHOT.jar']
 logsBucket: 'gs://tw-onkar-data/'
