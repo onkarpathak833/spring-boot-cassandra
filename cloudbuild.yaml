@@ -16,7 +16,7 @@ steps:
     volumes:
       - name : 'jar'
         path: '/jar'
-    args: ['./build_image.sh']
+    args: ['./scripts/build_image.sh']
 
   - name: 'gcr.io/cloud-builders/docker'
     id : C
