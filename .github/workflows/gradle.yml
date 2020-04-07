@@ -36,5 +36,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run : |
         echo "Github username: ${GITHUB_ACTOR}"
-        ./gradlew generatePomFileForMyPublicationPublication generateMetadataFileForMyPublicationPublication publish publishMyPublicationPublicationToGitHubPackagesRepository
+        ./gradlew  publish publishJarPublicationToGitHubPackagesRepository
   
