@@ -8,5 +8,5 @@ steps:
 artifacts:
   objects:
     location: 'gs://tw-onkar-data/'
-    paths: ['jars']
+    paths: ['jars/','build/libs/']
 logsBucket: 'gs://tw-onkar-data/'
