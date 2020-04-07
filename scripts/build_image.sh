@@ -6,4 +6,4 @@ if [ -f FILE ]; then
 else
   echo "File copy failed here"
 fi
-docker build -t --build-arg JAR_FILE=/jar/spring-cassandra-1.0-SNAPSHOT-application.jar gcr.io/project1-186407/spring-cassandra .
+docker build --build-arg JAR_FILE=/jar/spring-cassandra-1.0-SNAPSHOT-application.jar -t gcr.io/project1-186407/spring-cassandra .
