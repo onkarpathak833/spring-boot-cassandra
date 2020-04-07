@@ -1,4 +1,6 @@
 FROM openjdk:8-jdk-alpine
-RUN java -jar /build/spring-cassandra-1.0-SNAPSHOT-application.jar
+ARG JAR_FILE=/jar/spring-cassandra-1.0-SNAPSHOT-application.jar
+COPY ${JAR_FILE} app.jar
+RUN java -jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
