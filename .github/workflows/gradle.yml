@@ -33,7 +33,7 @@ jobs:
       run : ./gradlew assemble
     - name: Publish Artifacts
       env:
-        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+        GITHUB_TOKEN: "Onkar1712@"
       run : |
         echo "Github username: ${GITHUB_ACTOR}"
         ./gradlew  publish publishJarPublicationToGitHubPackagesRepository
