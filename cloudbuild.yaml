@@ -5,3 +5,7 @@ steps:
       - 'GITHUB_ACTOR=onkarpathak833'
       - 'REPO_TOKEN=c2d2fdf84ee8ca300cd95d1b79dabe00898fc61e'
     timeout: 600s
+    artifacts:
+      objects:
+        location: 'gs://tw-onkar-data'
+          paths: ['jars']
