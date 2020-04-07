@@ -18,6 +18,7 @@ plugins {
 group 'com.ikea.ingka.cop.dsa.poc'
 version '1.0-SNAPSHOT'
 
+
 sourceCompatibility = 1.8
 
 
@@ -29,6 +30,12 @@ task sourceJar(type: Jar) {
     from sourceSets.main.allJava
     classifier = "sources"
     archiveClassifier = "sources"
+    enabled = true
+}
+
+jar {
+    baseName = "spring-cassandra"
+    enabled = true
 }
 
 bootJar {
