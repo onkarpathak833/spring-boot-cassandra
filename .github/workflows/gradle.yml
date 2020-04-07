@@ -31,3 +31,5 @@ jobs:
       run : ./gradlew bootJar
     - name: build project jar
       run : ./gradlew assemble
+    - name : publish artifacts
+      run: ./gradlew publish
