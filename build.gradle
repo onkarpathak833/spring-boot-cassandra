@@ -42,6 +42,15 @@ bootJar {
     classifier = 'application'
 }
 
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.ikea.ingka.cop.dsa.poc.SpringApplication'
+    }
+    baseName = 'spring-cassandra'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 publishing {
     publications {
         register("jar", MavenPublication) {
