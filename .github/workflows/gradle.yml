@@ -26,8 +26,8 @@ jobs:
     - name: run gradle wrapper
       run: ./gradlew wrapper
     - name: Build with Gradle
-      run: ./gradlew -s build
+      run: ./gradlew build
     - name: build a bootJar
-      run : ./gradlew -s bootJar
+      run : ./gradlew bootJar
     - name: build project jar
-      run : ./gradlew -s assemble
+      run : ./gradlew assemble
