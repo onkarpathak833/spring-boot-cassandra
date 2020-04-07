@@ -9,5 +9,5 @@ steps:
       objects:
         location: 'gs://tw-onkar-data'
         paths: ['jars']
-    timeout: 600s
-  logsBucket: 'gs://tw-onkar-data'
+  - timeout: 600s
+  - logsBucket: 'gs://tw-onkar-data'
