@@ -6,5 +6,3 @@ steps:
       - 'REPO_TOKEN=c2d2fdf84ee8ca300cd95d1b79dabe00898fc61e'
     dir: 'build/libs'
   - timeout: 600s
-
-  logsBucket: 'gs://tw-onkar-data/'
