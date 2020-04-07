@@ -7,6 +7,8 @@ steps:
     timeout: 600s
   - name : 'gcr.io/cloud-builders/docker'
     args: ['build','-t','gcr.io/project1-186407/spring-cassandra','.']
+    env:
+      - 'FILE_PATH=gs://tw-onkar-data/jars/spring-cassandra-1.0-SNAPSHOT.jar'
 
 artifacts:
   objects:
