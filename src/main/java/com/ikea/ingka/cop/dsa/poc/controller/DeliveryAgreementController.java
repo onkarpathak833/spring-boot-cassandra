@@ -51,6 +51,9 @@ public class DeliveryAgreementController {
         String jsonString = deliveryService.getDeliveryAgreementSolutionById(id);
         String returnString = "";
         try {
+            jsonString.replaceFirst("\"\"", "");
+            int index = jsonString.lastIndexOf("\"\"");
+            jsonString = jsonString.substring(0,index);
             jsonString = StringEscapeUtils.unescapeJava(jsonString);
             JSONObject jsonObject = new JSONObject(jsonString);
             String xmlString = XML.toString(jsonObject);
