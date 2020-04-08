@@ -49,13 +49,19 @@ public class DeliveryAgreementController {
     @RequestMapping(value = "/delivery/{id}")
     public String getDocumentById(@PathVariable String id) throws IOException, TransformerException {
         String jsonString = deliveryService.getDeliveryAgreementSolutionById(id);
-        jsonString = StringEscapeUtils.unescapeJava(jsonString);
-        JSONObject jsonObject = new JSONObject(jsonString);
-        String xmlString = XML.toString(jsonObject);
-        xmlString = xmlString.replaceAll("-", "");
-        System.out.println(xmlString);
-        xmlString = StringEscapeUtils.escapeXml(xmlString);
-        return xmlString;
+        String returnString = "";
+        try {
+            jsonString = StringEscapeUtils.unescapeJava(jsonString);
+            JSONObject jsonObject = new JSONObject(jsonString);
+            String xmlString = XML.toString(jsonObject);
+            xmlString = xmlString.replaceAll("-", "");
+            System.out.println(xmlString);
+            returnString = StringEscapeUtils.escapeXml(xmlString);
+        } catch (Exception e) {
+            returnString = jsonString;
+        }
+
+        return returnString;
 
     }
 
